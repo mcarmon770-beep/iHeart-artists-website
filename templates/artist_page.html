@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artist Page</title>
+    <link href="{{ url_for('static', filename='artist_page.css')}}" rel="stylesheet">
+</head>
+<body>
+        <div class="add-artist-container">
+            <a href="/" class="add-artist-button">Home Page</a>
+        </div>
+        <div class="delete-artist">
+            <form action="{{ url_for('delete_artist', artist_id=artist.id) }}" method="post">
+                <button type="submit" class="add-artist-button">Delete Artist</button>
+            </form>
+        </div>
+        <!-- Artist Image Section -->
+        <div class="artist-image_page">
+            {% if artist.image_file_path %}
+                <img src="{{ url_for('static', filename=artist.image_file_path) }}" alt="Artist Image">
+                <div class="gradient-overlay"></div>
+            {% else %}
+                <p>No image available</p>
+            {% endif %}
+        </div>
+
+        <div class="artist-name-container">
+            <h1 class="artist-name_page">{{ artist.artist_name }}</h1>
+        </div>
+        <!-- Information Section -->
+        <div class="information-section">
+            <div class="artist-details">
+                <p>Genres: {{ artist.genres }}</p>
+                <p>Origin: {{ artist.origin }}</p>
+                <p>Band members: {{ artist.band_members }}</p>
+                <p>Years active: {{ artist.years_active }}</p>
+                <p>Awards: {{ artist.awards }}</p>
+                <p>Top 3 Albums: {{ artist.top_3_albums }}</p>
+                <p>Top 3 Songs: {{ artist.top_3_songs }}</p>
+                <p>Biography: {{ artist.biography }}</p>
+            </div>
+
+            <!-- Review Submission Section -->
+            <div class="review-submission">
+                <h2 style="text-align: center">Leave a Review</h2>
+                <form method="POST" action="{{ url_for('artist_page', id=artist.id) }}" class="review-form">
+                    {{ form.hidden_tag() }} <!-- Include CSRF token -->
+                    <div class="form-group">
+                        {{ form.user_name.label }}
+                        {{ form.user_name(size=50) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.review_content.label }}
+                        {{ form.review_content(rows=10, cols=50) }}
+                    </div>
+                    <div class="form-group">
+                        {{ form.submit() }}
+                    </div>
+                </form>
+            </div>
+
+
+            <!-- Reviews Section -->
+        <h2 style="text-align: center">Reviews</h2>
+            <div class="reviews-container">
+                <div class="reviews-section">
+                    {% for review in reviews %}
+                        <div class="review">
+                            <strong>{{ review.user_name }}</strong> said:
+                            <p>{{ review.review }}</p>
+                        </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <div>
+            <h1 class="bottom-line">LIVE, LAUGH, LOVE MUSIC</h1>
+        </div>
+        <footer class="copyright">
+            <p>&copy; 2024 iHeartMusic. All Rights Reserved.</p>
+        </footer>
+</body>
+</html>

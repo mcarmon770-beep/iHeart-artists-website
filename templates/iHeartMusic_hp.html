@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="{{ url_for('static', filename='webstyle_.css')}}" rel="stylesheet">
+    <script src="{{ url_for('static', filename='web_js/web_script.js') }}"></script>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Bungee&display=swap">
+
+
+    <title>iHeart music homepage</title>
+</head>
+<body>
+    <div class="top-container">
+    <div class="centered-button">
+        <button id="randomArtistButton" class="button:hover">
+            <img src="{{url_for('static', filename='/media/heart2.png')}}" alt="Button Image"/>
+        </button>
+    </div>
+
+    <div>
+        <h1 class="center-heading big-heading">iHeart music</h1>
+    </div>
+
+    <div>
+        <h2 class="center-heading small-heading">press the heart for random artist</h2>
+    </div>
+    </div>
+
+    <div class="button-container">
+    {% for artist in artists %}
+        {% if loop.index % 3 == 1 %}
+            <div class="button-row">
+        {% endif %}
+        <div class="button">
+            <a href="{{ url_for('artist_page', id=artist.id) }}" id="{{artist.id}}">
+                <img src="{{ url_for('static', filename=artist.image_file_path) }}" alt="{{ artist.artist_name }}" class="artist-image">
+            </a>
+             <span class="artist-name">{{ artist.artist_name }}</span>
+        </div>
+        {% if loop.index % 3 == 0 or loop.last %}
+            </div>
+        {% endif %}
+    {% endfor %}
+    </div>
+
+
+    <div class="add-artist-container">
+         <a href="/add_artist" class="add-artist-button">Add Artist</a>
+    </div>
+
+    <div>
+        <h1 class="bottom-line">LIVE, LAUGH, LOVE MUSIC</h1>
+    </div>
+        <footer class="copyright">
+            <p>&copy; 2024 iHeartMusic. All Rights Reserved.</p>
+        </footer>
+</body>
+</html>
+

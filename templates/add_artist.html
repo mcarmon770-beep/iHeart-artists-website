@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>add artist</title>
+     <link href="{{ url_for('static', filename='add_artist.css')}}" rel="stylesheet">
+</head>
+<body>
+    <h1 class="big-heading">Add artist</h1>
+    <div class="review-submission">
+            <form action="/submit_artist" method="POST" enctype="multipart/form-data" class="review-form" onsubmit="showAlert()">
+
+
+            <div class="form-group">
+                <label>Artist Name</label>
+                <input name="Artist Name" type="text">
+            </div>
+            <div class="form-group">
+                <label>Genres</label>
+                <input name="Genres" type="text">
+            </div>
+            <div class="form-group">
+                <label>Origin</label>
+                <input name="Origin" type="text">
+            </div>
+            <div class="form-group">
+                <label>Band members</label>
+                <input name="Band members" type="text">
+            </div>
+            <div class="form-group">
+                <label>Years active</label>
+                <input name="Years active" type="text">
+            </div>
+            <div class="form-group">
+                <label>Awards</label>
+                <input name="Awards" type="text">
+            </div>
+            <div class="form-group">
+                <label>Top 3 Albums</label>
+                <input name="Top 3 Albums" type="text">
+            </div>
+            <div class="form-group">
+                <label>Top 3 Songs</label>
+                <input name="Top 3 Songs" type="text">
+            </div>
+            <div class="form-group">
+                <label>Biography</label>
+                <input name="Biography" type="text">
+            </div>
+            <div class="form-group">
+                <label>Artist image (use png, jpg or jpeg format only)</label>
+                 <input type="file" name="file">
+            </div>
+            <div class="form-group">
+                 <button type="submit">Submit</button>
+            </div>
+            </form>
+        </div>
+        <div>
+            <h1 class="bottom-line">LIVE, LAUGH, LOVE MUSIC</h1>
+        </div>
+        <footer class="copyright">
+            <p>&copy; 2024 iHeartMusic. All Rights Reserved.</p>
+        </footer>
+
+    <div class="custom-alert" id="customAlert" style="display: none;">
+        <span class="closebtn" onclick="hideAlert()">&times;</span>
+        Artist was added successfully
+    </div>
+
+    <script>
+        function showAlert() {
+            var alertShown = localStorage.getItem('alertShown');
+            if (!alertShown) {
+                var alertBox = document.getElementById("customAlert");
+                alertBox.style.display = "block";
+                localStorage.setItem('alertShown', 'true');
+                setTimeout(hideAlert, 3000);
+            }
+        }
+
+        function hideAlert() {
+            var alertBox = document.getElementById("customAlert");
+            alertBox.style.display = "none";
+        }
+    </script>
+
+</body>
+</html>

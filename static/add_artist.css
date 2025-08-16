@@ -1,0 +1,125 @@
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: #081824;
+    color: white;
+}
+
+
+.big-heading {
+    font-family: 'Ankh Sanctuary', cursive;
+    font-size: 100px;
+    margin-top: 120px;
+    margin-bottom: 20px;
+    color: white;
+    text-align: center;
+}
+
+.review-submission {
+    margin-top: 20px;
+    padding: 20px;
+    background-color: #081824; /* Dark blue background color */
+    color: white; /* White text color */
+}
+
+.review-submission h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.review-form {
+    max-width: 400px; /* Set a maximum width for the form */
+    margin: 20px auto; /* Center the form horizontally with margin */
+    padding: 10px;
+    transition: all 0.3s ease;
+}
+
+.form-group {
+    margin-bottom: 15px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 5px;
+    font-weight: bold;
+}
+
+.form-group input[type="text"],
+.form-group textarea {
+    width: 100%; /* Make input fields and textarea full width within their parent */
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box; /* Ensure padding and border are included in the width */
+}
+
+.form-group button {
+    background-color: #9AC775; /* Light green button background color */
+    color: #113B4E; /* Dark blue text color */
+    border: none;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.form-group button:hover {
+    background-color: #C0E6A4; /* Darker green on hover */
+}
+
+
+.bottom-line {
+    text-align: center;
+    font-size: 60px;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-top: 260px;
+    margin-bottom: 55px;
+    background-image: linear-gradient(to bottom, white, #889DA6);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: 'Charcoal', serif;
+    transform: scaleY(2.5);
+    transition: all 0.3s ease;
+}
+.copyright {
+    text-align: center;
+    background-color: #333;
+    color: white;
+    padding: 5px 0;
+}
+
+.custom-alert {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #081824; /* Dark blue background color */
+    color: white; /* White text color */
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.custom-alert .closebtn {
+    position: absolute;
+    top: 5px;
+    right: 10px;
+    color: white;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.custom-alert .closebtn:hover {
+    color: #ccc;
+}
+
+.custom-alert p {
+    margin: 0;
+}
