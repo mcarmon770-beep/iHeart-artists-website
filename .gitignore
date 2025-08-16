@@ -1,9 +1,12 @@
-
-.DS_Store
-
-
+# Ignore Python cache folders
 __pycache__/
 *.pyc
 
+# Ignore macOS system files
+.DS_Store
 
-instance/
+# Ignore virtual environment folders (אם זה הרלוונטי)
+.venv/
+env/
+venv/
+
